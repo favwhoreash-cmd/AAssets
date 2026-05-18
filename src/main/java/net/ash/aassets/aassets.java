@@ -17,7 +17,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
-import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
@@ -33,8 +32,8 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
-@Mod(AAssets.MODID)
-public class AAssets {
+@Mod(aassets.MODID)
+public class aassets {
     // Define mod id in a common place for everything to reference
     public static final String MODID = "aassets";
     // Directly reference a slf4j logger
@@ -55,18 +54,22 @@ public class AAssets {
     public static final DeferredItem<Item> EXAMPLE_ITEM = ITEMS.registerSimpleItem("example_item", new Item.Properties().food(new FoodProperties.Builder()
             .alwaysEdible().nutrition(1).saturationModifier(2f).build()));
 
-    // Creates a creative tab with the id "aassets:example_tab" for the example item, that is placed after the combat tab
-    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> EXAMPLE_TAB = CREATIVE_MODE_TABS.register("example_tab", () -> CreativeModeTab.builder()
+    // Creates a creative tab with the id "aassets:federation_tab" for the example item, that is placed after the combat tab
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> FEDERATION_TAB = CREATIVE_MODE_TABS.register("federation_tab", () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup.aassets")) //The language key for the title of your CreativeModeTab
             .withTabsBefore(CreativeModeTabs.COMBAT)
-            .icon(() -> EXAMPLE_ITEM.get().getDefaultInstance())
+            .icon(() -> ModItems.EYE.get().getDefaultInstance())
             .displayItems((parameters, output) -> {
-                output.accept(EXAMPLE_ITEM.get()); // Add the example item to the tab. For your own tabs, this method is preferred over the event
+                output.accept(ModItems.EYE.get()); // Add the example item to the tab. For your own tabs, this method is preferred over the event
+                output.accept(ModItems.FEDERATION_SWORD.get());
+                output.accept(ModItems.FEDSWORD.get());
+                output.accept(EXAMPLE_BLOCK_ITEM.get());
+                output.accept(EXAMPLE_ITEM.get());
             }).build());
 
     // The constructor for the mod class is the first code that is run when your mod is loaded.
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
-    public AAssets(IEventBus modEventBus, ModContainer modContainer) {
+    public aassets(IEventBus modEventBus, ModContainer modContainer) {
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
@@ -107,11 +110,6 @@ public class AAssets {
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
-            event.accept(EXAMPLE_BLOCK_ITEM);
-            event.accept(ModItems.FEDSWORD);
-        }
-        if (event.getTabKey() == CreativeModeTabs.COMBAT) {
-            event.accept(ModItems.FEDSWORD);
         }
     }
 

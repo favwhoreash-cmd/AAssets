@@ -2,6 +2,6 @@
 "parent": "minecraft:item/generated",
 "textures": {
 "layer0":
-"aassets:item/fedsword"
+"aassets:item/federation_eye"
 }
 }
