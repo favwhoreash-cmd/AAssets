@@ -1,0 +1,15 @@
+{
+  "itemGroup.aassets": "Example Mod Tab",
+  "block.aassets.example_block": "Example Block",
+  "item.aassets.example_item": "Example Item",
+
+  "item.aassets.federation_sword": "Federation Sword",
+
+  "aassets.configuration.title": "AAssets Configs",
+  "aassets.configuration.section.aassets.common.toml": "AAssets Configs",
+  "aassets.configuration.section.aassets.common.toml.title": "AAssets Configs",
+  "aassets.configuration.items": "Item List",
+  "aassets.configuration.logDirtBlock": "Log Dirt Block",
+  "aassets.configuration.magicNumberIntroduction": "Magic Number Text",
+  "aassets.configuration.magicNumber": "Magic Number",
+}
