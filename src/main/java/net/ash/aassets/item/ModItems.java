@@ -14,6 +14,8 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
     public static final DeferredItem<Item> EYE = ITEMS.register("federation_eye",
             () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> COMINGSOON = ITEMS.register("comingsoon",
+            () -> new Item(new Item.Properties()));
 
     public static final DeferredItem<SwordItem> FEDERATION_SWORD = ITEMS.register("federation_sword",
             () -> new SwordItem(ModToolTiers.FEDERATION, new Item.Properties()

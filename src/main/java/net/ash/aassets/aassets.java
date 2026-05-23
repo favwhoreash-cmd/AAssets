@@ -65,6 +65,7 @@ public class aassets {
                 output.accept(ModItems.FEDSWORD.get());
                 output.accept(EXAMPLE_BLOCK_ITEM.get());
                 output.accept(EXAMPLE_ITEM.get());
+                output.accept(ModItems.COMINGSOON.get());
             }).build());
 
     // The constructor for the mod class is the first code that is run when your mod is loaded.
